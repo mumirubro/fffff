@@ -1,0 +1,32 @@
+2025-04-07 15:12:54,201 - telegram.ext._application - INFO - Application started
+2025-04-07 15:12:55,111 - telegram.ext._application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1063, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+  File "/home/runner/workspace/main.py", line 361, in start
+    await update.message.reply_text(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_message.py", line 1006, in reply_text
+    return await self.get_bot().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 2596, in send_message
+    return await super().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 767, in send_message
+    return await self._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 515, in _send_message
+    result = await self._post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 422, in _post
+    return await self._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 453, in _do_post
+    return await request.post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 319, in _request_wrapper
+    raise Forbidden(message)
+telegram.error.Forbidden: Forbidden: bot was blocked by the user

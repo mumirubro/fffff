@@ -1,0 +1,126 @@
+2025-04-08 12:43:58,841 - telegram.ext._application - INFO - Application started
+2025-04-08 12:44:00,181 - __main__ - WARNING - Update "Update(message=Message(channel_chat_created=False, chat=Chat(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, type=<ChatType.PRIVATE>, username='CP_THANOS'), date=datetime.datetime(2025, 4, 8, 9, 45, 40, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, is_bot=False, language_code='en', username='CP_THANOS'), group_chat_created=False, message_id=4439, supergroup_chat_created=False, text='/start'), update_id=933895048)" caused error "Forbidden: bot was blocked by the user"
+2025-04-08 12:44:00,182 - telegram.ext._application - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1063, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+  File "/home/runner/workspace/main.py", line 361, in start
+    await update.message.reply_text(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_message.py", line 1006, in reply_text
+    return await self.get_bot().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 2596, in send_message
+    return await super().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 767, in send_message
+    return await self._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 515, in _send_message
+    result = await self._post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 422, in _post
+    return await self._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 453, in _do_post
+    return await request.post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 319, in _request_wrapper
+    raise Forbidden(message)
+telegram.error.Forbidden: Forbidden: bot was blocked by the user
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "/home/runner/workspace/main.py", line 1200, in error_handler
+    if isinstance(context.error, Forbidden):
+NameError: name 'Forbidden' is not defined
+2025-04-08 12:44:00,419 - __main__ - WARNING - Update "Update(message=Message(channel_chat_created=False, chat=Chat(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, type=<ChatType.PRIVATE>, username='CP_THANOS'), date=datetime.datetime(2025, 4, 8, 9, 45, 33, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, is_bot=False, language_code='en', username='CP_THANOS'), group_chat_created=False, message_id=4438, supergroup_chat_created=False, text='/start'), update_id=933895047)" caused error "Forbidden: bot was blocked by the user"
+2025-04-08 12:44:00,420 - telegram.ext._application - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1063, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+  File "/home/runner/workspace/main.py", line 361, in start
+    await update.message.reply_text(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_message.py", line 1006, in reply_text
+    return await self.get_bot().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 2596, in send_message
+    return await super().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 767, in send_message
+    return await self._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 515, in _send_message
+    result = await self._post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 422, in _post
+    return await self._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 453, in _do_post
+    return await request.post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 319, in _request_wrapper
+    raise Forbidden(message)
+telegram.error.Forbidden: Forbidden: bot was blocked by the user
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "/home/runner/workspace/main.py", line 1200, in error_handler
+    if isinstance(context.error, Forbidden):
+NameError: name 'Forbidden' is not defined
+2025-04-08 12:44:00,732 - __main__ - WARNING - Update "Update(message=Message(channel_chat_created=False, chat=Chat(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, type=<ChatType.PRIVATE>, username='CP_THANOS'), date=datetime.datetime(2025, 4, 8, 9, 45, 54, tzinfo=<UTC>), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='𝙏𝙃𝘼𝙉𝙊𝙎', id=1903532850, is_bot=False, language_code='en', username='CP_THANOS'), group_chat_created=False, message_id=4440, supergroup_chat_created=False, text='/start'), update_id=933895049)" caused error "Forbidden: bot was blocked by the user"
+2025-04-08 12:44:00,733 - telegram.ext._application - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1063, in process_update
+    await coroutine
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+  File "/home/runner/workspace/main.py", line 361, in start
+    await update.message.reply_text(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_message.py", line 1006, in reply_text
+    return await self.get_bot().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 2596, in send_message
+    return await super().send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 767, in send_message
+    return await self._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 515, in _send_message
+    result = await self._post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 422, in _post
+    return await self._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/_bot.py", line 453, in _do_post
+    return await request.post(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/request/_baserequest.py", line 319, in _request_wrapper
+    raise Forbidden(message)
+telegram.error.Forbidden: Forbidden: bot was blocked by the user
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.10/site-packages/telegram/ext/_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "/home/runner/workspace/main.py", line 1200, in error_handler
+    if isinstance(context.error, Forbidden):
+NameError: name 'Forbidden' is not defined
+2025-04-08 12:44:00,745 - telegram.ext._application - INFO - Application is stopping. This might take a moment.
+2025-04-08 12:44:00,745 - telegram.ext._application - INFO - Application.stop() complete

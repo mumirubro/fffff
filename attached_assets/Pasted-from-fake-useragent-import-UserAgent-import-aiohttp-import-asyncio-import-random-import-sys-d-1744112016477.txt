@@ -1,0 +1,250 @@
+from fake_useragent import UserAgent
+import aiohttp
+import asyncio
+import random
+import sys
+
+def gets(s, start, end):
+    try:
+        start_index = s.index(start) + len(start)
+        end_index = s.index(end, start_index)
+        return s[start_index:end_index]
+    except ValueError:
+        return None
+
+async def safe_print(text):
+    try:
+        # Try to print with UTF-8 encoding
+        print(text)
+    except UnicodeEncodeError:
+        # If that fails, replace problematic characters
+        print(text.encode(sys.stdout.encoding, errors='replace').decode(sys.stdout.encoding))
+
+async def visit_website():
+    try:
+        async with aiohttp.ClientSession() as session:
+            # Generate random user credentials
+            user_id = random.randint(9999, 574545)
+            username = f"cristnik1{user_id}"
+            email = f"cristnik1{user_id}@mml.com"    
+            
+            # First request
+            headers = {
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Connection': 'keep-alive',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Upgrade-Insecure-Requests': '1',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+                'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+            }
+
+            response = await session.get('https://www.womenscentrecalgary.org/donate/donate-now/', headers=headers)
+            await safe_print(await response.text())
+            
+            # Second request
+            headers = {
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Connection': 'keep-alive',
+                'Content-Type': 'text/plain;charset=UTF-8',
+                'Origin': 'https://www.canadahelps.org',
+                'Referer': 'https://www.canadahelps.org/',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'cross-site',
+                'Sec-Fetch-Storage-Access': 'active',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+                'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+            }
+
+            data = '{"pids":[2513906,6841684],"scriptVersion":199,"time":1744110199028,"domain":"canadahelps.org","url":"https://canadahelps.org/en/dn***-***-****","pageTitle":"Donate Now - The Women\'s Centre of Calgary","websiteSignalRequestId":"708b7557-d668-1b74-cbf2-ea5eaedaa6ff","isTranslated":false,"liFatId":"","liGiant":"","misc":{"psbState":-4},"isLinkedInApp":false,"hem":null,"signalType":"CLICK","href":"","domAttributes":{"elementSemanticType":null,"elementValue":null,"elementType":"button","tagName":"BUTTON","backgroundImageSrc":null,"imageSrc":null,"imageAlt":null,"innerText":"Complete Donation Now","elementTitle":"Complete Donation Now","cursor":"pointer","formAction":null,"isFormSubmission":false},"innerElements":null,"elementCrumbsTree":[{"tagName":"div","nthChild":4,"id":"cdf-mount"},{"tagName":"main","nthChild":0,"classes":["app"]},{"tagName":"div","nthChild":1,"id":"formWrapper","classes":["bg-ink-solitude","flex","flex-col","items-center","lg:py-10","py-20"]},{"tagName":"form","nthChild":1,"classes":["ff-container","ff-width"]},{"tagName":"div","nthChild":7,"classes":["border-t","border-t-zircon","cdf-footer","flex","flex-col","justify-center","pb-10","pt-8","px-6"]},{"tagName":"div","nthChild":0,"classes":["flex","flex-col","items-center","justify-evenly","mb-6"]},{"tagName":"button","nthChild":0,"id":"cdf-submit","classes":["active:shadow-blue-dark","active:shadow-inner","bg-blue-ch","border-solid","cursor-pointer","focus:outline-2","font-bold","hover:bg-gradient-to-b","hover:from-blue-ch","hover:to-blue-dark","items-center","outline","outline-1","outline-blue-dark","px-4","py-4","rounded-ch","text-btnLarge","text-white"],"attributes":{"data-radium":"true"}}],"isFilteredByClient":false}'
+
+            response = await session.post('https://px.ads.linkedin.com/wa/', headers=headers, data=data)
+            await safe_print(await response.text())
+            
+            # Third request - fraud check
+            headers = {
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Cache-Control': 'max-age=0',
+                'Connection': 'keep-alive',
+                'Origin': 'https://www.canadahelps.org',
+                'Referer': 'https://www.canadahelps.org/en/dn/15762',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Fetch-Storage-Access': 'active',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+                'content-type': 'application/json',
+                'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+            }
+
+            json_data = {
+                'expectedAction': 'CDF_FULLFORM_V2',
+                'donationDetail': [
+                    {
+                        'charityID': 55330,
+                        'pageID': 15762,
+                        'fundID': 174083,
+                        'amount': 3,
+                        'amountType': 0,
+                        'suggestedAskAmount': 0,
+                        'messageToCharity': '',
+                        'supportersWallMessage': '',
+                        'supporterWallAnonymityPreference': '0',
+                        'dedicationType': 0,
+                        'dedicationTo': '',
+                        'isGiftCard': False,
+                    },
+                ],
+                'donorInfo': {
+                    'donorTypeID': 1,
+                    'donorFirstName': 'saimon',
+                    'donorLastName': 'dives',
+                    'companyName': '',
+                    'donorEmailAddress': 'saimondives@gmail.com',
+                    'donorID': 0,
+                    'address1': '5805 Chantry Dr',
+                    'address2': '',
+                    'city': 'Columbus',
+                    'province': 'Ohio',
+                    'country': 'US',
+                    'postalCode': '43232',
+                },
+            }
+
+            response = await session.post('https://www.canadahelps.org/site/api/fraud/check', headers=headers, json=json_data)
+            fraud_response = await response.json()
+            oneTimeSessionToken = fraud_response.get("oneTimeSessionToken", "")
+            print(f"oneTimeSessionToken: {oneTimeSessionToken}")
+            
+            # Fourth request - token generation
+            headers = {
+                'Accept': '*/*',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Cache-Control': 'max-age=0',
+                'Connection': 'keep-alive',
+                'Origin': 'https://www.canadahelps.org',
+                'Referer': 'https://www.canadahelps.org/',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-site',
+                'Sec-Fetch-Storage-Access': 'active',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+                'ch-onetimesession-token': oneTimeSessionToken,
+                'content-type': 'application/json',
+                'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'x-correlation-id': 'd65eaa9e-e75e-45a9-9b16-5d466cfc83cf',
+                'x-trace-id': '00000000-0000-0000-0000-000000000000',
+            }
+
+            json_data = {
+                'BillingAddress': {
+                    'Line1': '5805 Chantry Dr',
+                    'City': 'Columbus',
+                    'Province': 'Ohio',
+                    'Country': 'US',
+                    'postalCode': '43232',
+                },
+                'CreditCardNumber': '4833160082030393',
+                'ExpiryDate': '202605',
+                'CVN': '331',
+                'PostalCode': '43232',
+                'CardHolderName': 'saimon dives',
+            }
+
+            response = await session.post('https://token.canadahelps.org/tokens/v2', headers=headers, json=json_data)
+            token_response = await response.json()
+            token = token_response.get("token", "")
+            print(f"token: {token}")
+            
+            # Fifth request - final donation
+            headers = {
+                'Accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Connection': 'keep-alive',
+                'Content-Type': 'application/json-patch+json',
+                'Origin': 'https://www.canadahelps.org',
+                'Referer': 'https://www.canadahelps.org/en/dn/15762',
+                'Sec-Fetch-Dest': 'empty',
+                'Sec-Fetch-Mode': 'cors',
+                'Sec-Fetch-Site': 'same-origin',
+                'Sec-Fetch-Storage-Access': 'active',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+                'sec-ch-ua': '"Google Chrome";v="135", "Not-A.Brand";v="8", "Chromium";v="135"',
+                'sec-ch-ua-mobile': '?0',
+                'sec-ch-ua-platform': '"Windows"',
+                'x-correlation-id': 'd65eaa9e-e75e-45a9-9b16-5d466cfc83cf',
+            }
+
+            data = {
+                "charityID": 55330,
+                "pageId": 15762,
+                "fundId": 174083,
+                "amount": 3,
+                "amountType": 0,
+                "suggestedAskAmount": 0,
+                "messageToCharity": "",
+                "donorInfo": {
+                    "donorType": 1,
+                    "firstName": "saimon",
+                    "lastName": "dives",
+                    "companyName": "",
+                    "emailAddress": "saimondives@gmail.com",
+                    "addressInfo": {
+                        "addressLine1": "5805 Chantry Dr",
+                        "city": "Columbus",
+                        "province": "Ohio",
+                        "country": "US",
+                        "postalCode": "43232"
+                    }
+                },
+                "paymentMethod": {
+                    "paymentType": 1,
+                    "token": token,
+                    "oneTimeSessionToken": oneTimeSessionToken
+                },
+                "languagePreference": 1,
+                "isAuthenticated": False,
+                "feeInfo": {},
+                "isEmbedded": True,
+                "isMobile": False,
+                "customDonateNowMetaData": {
+                    "questionOne": "What inspired you to donate today?",
+                    "phoneNumber": "",
+                    "addToMailingList": "false"
+                },
+                "anonymityID": 0
+            }
+
+            response = await session.post('https://www.canadahelps.org/site/api/CDF/fullform/donate', headers=headers, json=data)
+            transaction_response = await response.json()
+            print(f"transactionStatus: {transaction_response.get('transactionStatus', '')}")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+async def main():
+    await visit_website()
+
+if __name__ == "__main__":
+    # Set UTF-8 encoding for Windows console
+    if sys.platform == "win32":
+        import io
+        import os
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+    
+    asyncio.run(main())
